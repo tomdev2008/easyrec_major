@@ -36,18 +36,6 @@ import static org.easyrec.util.core.RecommenderUtils.filterDuplicates;
 
 /**
  * Implementation of the {@link org.easyrec.service.core.RecommenderService} interface.
- * <p/>
- * <p><b>Company:&nbsp;</b>
- * SAT, Research Studios Austria</p>
- * <p/>
- * <p><b>Copyright:&nbsp;</b>
- * (c) 2007</p>
- * <p/>
- * <p><b>last modified:</b><br/>
- * $Author: szavrel $<br/>
- * $Date: 2012-02-02 18:32:05 +0100 (Do, 02 Feb 2012) $<br/>
- * $Revision: 18688 $</p>
- *
  * @author Roman Cerny
  */
 public class RecommenderServiceImpl implements RecommenderService, InitializingBean {
