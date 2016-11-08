@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- $Author: szavrel $ -->
+<!-- $Revision: 17663 $ -->
+<!-- $Date: 2011-02-11 11:34:32 +0100 (Fr, 11 Feb 2011) $ -->
+
+<dataset>
+    <tenant id="1" stringId="shop" description="I am a shop." ratingRangeMin="1" ratingRangeMax="10" ratingRangeNeutral="5.5" active="1"/>
+
+    <itemtype tenantId="1" name="ITEM" id="1" />
+    <itemtype tenantId="1" name="ANOTHER_ITEM" id="2" />
+
+    <!-- profile with single dimension /profile/name -->
+    <item tenantId="1" itemid="1" itemtype="ITEM"
+          profileData="&lt;profile>&lt;description>Description stored as a profile.&lt;/description>&lt;name>profileItem&lt;/name>&lt;property1>propvalue1&lt;/property1>&lt;/profile>" />
+
+    <!-- profile with multi dimension value /profile/genres -->
+    <item tenantId="1" itemid="2" itemtype="ITEM"
+          profileData="&lt;profile>&lt;description>Description stored as a profile.&lt;/description>&lt;name>profileItem&lt;/name>&lt;genre>g1&lt;/genre>&lt;genre>g2&lt;/genre>&lt;genre>g3&lt;/genre>&lt;property1>propvalue2&lt;/property1>&lt;/profile>" />
+
+    <item tenantId="1" itemid="3" itemtype="ITEM"
+          profileData="&lt;profile>&lt;description>Description stored as a profile.&lt;/description>&lt;name>profileItem&lt;/name>&lt;property1>propvalue1&lt;/property1>&lt;/profile>" />
+
+    <item tenantId="1" itemid="4" itemtype="ANOTHER_ITEM"
+          profileData="&lt;profile>&lt;description>Description stored as a profile.&lt;/description>&lt;name>anotherItem&lt;/name>/profile>" />
+
+    <item tenantId="1" itemid="5" itemtype="ANOTHER_ITEM"
+          profileData="&lt;profile>&lt;description>Description stored as a profile.&lt;/description>&lt;name>anotherItem&lt;/name>/profile>" />
+
+
+</dataset>

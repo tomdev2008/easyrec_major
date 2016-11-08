@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- $Author: fsalcher $ -->
+<!-- $Revision: 18791 $ -->
+<!-- $Date: 2012-03-23 15:35:07 +0100 (Fr, 23 Mär 2012) $ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+<!--    <bean id="idMappingDAO"
+          class="org.easyrec.store.dao.impl.IDMappingDAOMysqlImpl">
+        <constructor-arg ref="easyrecDataSource"/>
+        <constructor-arg ref="easyrecSqlScriptService"/>
+    </bean>-->
+
+    <bean id="idMappingService"
+          class="org.easyrec.service.web.impl.IDMappingServiceImpl">
+        <constructor-arg index="0" ref="idMappingDAO"/>
+        <constructor-arg index="1" ref="itemDAO"/>
+        <constructor-arg index="2" ref="tenantService"/>
+        <constructor-arg index="3" ref="assocTypeDAO"/>
+        <constructor-arg index="4" ref="itemTypeDAO"/>
+    </bean>
+
+
+</beans>

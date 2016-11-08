@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- $Author$ -->
+<!-- $Revision$ -->
+<!-- $Date$ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+                http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean id="propertyConfigurerDatabase"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:/easyrec.database.properties</value>
+                <value>classpath:/override/easyrec.database.properties</value>
+            </list>
+        </property>
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="placeholderPrefix" value="$easyrec-db{"/>
+    </bean>
+
+<!--    <bean id="easyrecDataSource"
+          class="org.apache.commons.dbcp.BasicDataSource" > destroy-method="close"> 
+        <property name="driverClassName" value="$easyrec-db{db.easyrec.driver}"/>
+        <property name="url" value="$easyrec-db{db.easyrec.url}"/>
+        <property name="username" value="$easyrec-db{db.easyrec.username}"/>
+        <property name="password" value="$easyrec-db{db.easyrec.password}"/>
+         http://confluence.atlassian.com/display/JIRA/Surviving+Connection+Closures 
+        <property name="timeBetweenEvictionRunsMillis" value="1800000"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="minEvictableIdleTimeMillis" value="1800000"/>
+        <property name="validationQuery" value="SELECT 1"/>
+        <property name="connectionProperties" value="characterEncoding=UTF-8;useUnicode=true;" />
+    </bean>-->
+    
+    <bean id="easyrecDataSourceConfig"
+          class="com.zaxxer.hikari.HikariConfig" ><!-- destroy-method="close"> -->
+        <property name="dataSourceClassName" value="$easyrec-db{db.easyrec.driver}"/>
+        <property name="jdbcUrl" value="$easyrec-db{db.easyrec.url}"/>
+        <property name="username" value="$easyrec-db{db.easyrec.username}"/>
+        <property name="password" value="$easyrec-db{db.easyrec.password}"/>
+        <property name="poolName" value="easyrecPool"/>
+        <property name="initializationFailFast" value="$easyrec-db{db.easyrec.failfast}"/>
+        <property name="dataSourceProperties">
+            <props>
+                <prop key="url">$easyrec-db{db.easyrec.url}</prop>
+                <prop key="cachePrepStmts">true</prop>
+                <prop key="prepStmtCacheSize">250</prop>
+                <prop key="prepStmtCacheSqlLimit">2048</prop>
+                <prop key="useServerPrepStmts">true</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <bean id="easyrecDataSource"
+          class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+        <constructor-arg ref="easyrecDataSourceConfig" />
+    </bean>
+
+    <bean id="easyrecSqlScriptService"
+          class="org.easyrec.utils.spring.store.service.sqlscript.impl.SqlScriptServiceImpl">
+        <constructor-arg ref="easyrecDataSource"/>
+    </bean>
+</beans>

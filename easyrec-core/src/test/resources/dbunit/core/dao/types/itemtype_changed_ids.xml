@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- $Author: fsalcher $ -->
+<!-- $Revision: 18753 $ -->
+<!-- $Date: 2012-03-12 17:25:40 +0100 (Mo, 12 Mär 2012) $ -->
+
+<dataset>
+    <itemtype tenantId="0" id="11" name="ALBUM" visible="true"/>
+    <itemtype tenantId="0" id="21" name="ARTIST" visible="true"/>
+    <itemtype tenantId="0" id="31" name="ASSET" visible="true"/>
+    <itemtype tenantId="0" id="41" name="CLUSTER" visible="true"/>
+    <itemtype tenantId="0" id="51" name="GENRE_CLUSTER" visible="true"/>
+    <itemtype tenantId="0" id="61" name="PLAYLIST" visible="true"/>
+    <itemtype tenantId="0" id="71" name="PROTOTYPE_TRACK" visible="true"/>
+    <itemtype tenantId="0" id="81" name="SOUND_CLUSTER" visible="true"/>
+    <itemtype tenantId="0" id="91" name="TRACK" visible="true"/>
+    <itemtype tenantId="0" id="101" name="INVISIBLE" visible="false"/>
+</dataset>

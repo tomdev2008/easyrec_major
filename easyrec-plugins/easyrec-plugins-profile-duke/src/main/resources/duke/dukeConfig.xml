@@ -1,0 +1,70 @@
+<!--
+  For more information, see
+    http://code.google.com/p/duke/wiki/Comparator
+-->
+<duke>
+    <param name="database-implementation" value="in-memory"/>
+
+    <object class="no.priv.garshol.duke.comparators.NumericComparator"
+            name="YearComparator">
+        <param name="min-ratio" value="0.0"/>
+    </object>
+
+    <schema>
+        <threshold>0.95</threshold>
+        <maybe-threshold>0.90</maybe-threshold>
+
+        <property type="id">
+            <name>ID</name>
+        </property>
+
+        <property type="ignore">
+            <name>profiletenant</name>
+
+        </property>
+
+        <property type="ignore">
+            <name>profileitem</name>
+        </property>
+
+        <property type="ignore">
+            <name>profiletype</name>
+        </property>
+
+        <property>
+            <name>title</name>
+            <comparator>no.priv.garshol.duke.comparators.DiceCoefficientComparator</comparator>
+            <low>0.01</low>
+            <high>0.7</high>
+        </property>
+
+        <property>
+            <name>year</name>
+            <comparator>YearComparator</comparator>
+            <low>0.3</low>
+            <high>0.7</high>
+        </property>
+
+        <property>
+            <name>director</name>
+            <comparator>no.priv.garshol.duke.comparators.PersonNameComparator</comparator>
+            <low>0.1</low>
+            <high>0.95</high>
+        </property>
+
+        <property>
+            <name>actor</name>
+            <comparator>no.priv.garshol.duke.comparators.PersonNameComparator</comparator>
+            <low>0.1</low>
+            <high>0.9</high>
+        </property>
+
+        <property>
+            <name>category</name>
+            <comparator>no.priv.garshol.duke.comparators.ExactComparator</comparator>
+            <low>0.05</low>
+            <high>0.9</high>
+        </property>
+
+    </schema>
+</duke>

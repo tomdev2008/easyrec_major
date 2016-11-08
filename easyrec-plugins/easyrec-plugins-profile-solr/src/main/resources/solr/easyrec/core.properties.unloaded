@@ -1,0 +1,6 @@
+#Written by CorePropertiesLocator
+#Fri May 22 13:58:53 UTC 2015
+name=steff
+config=solrconfig.xml
+schema=schema.xml
+dataDir=data
